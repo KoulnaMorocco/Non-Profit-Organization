@@ -35,7 +35,6 @@ module.exports = async function handler(req, res) {
       automatic_tax: { enabled: false },
       allow_promotion_codes: false,
       submit_type: 'auto',
-      saved_payment_method_options: { payment_method_save: 'enabled' },
       line_items: [{
         price_data: {
           currency: 'usd',
