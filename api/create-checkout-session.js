@@ -21,6 +21,14 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    console.log(
+  'Stripe key mode:',
+  process.env.STRIPE_SECRET_KEY?.startsWith('sk_live_')
+    ? 'LIVE'
+    : process.env.STRIPE_SECRET_KEY?.startsWith('sk_test_')
+      ? 'TEST'
+      : 'UNKNOWN'
+);
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const origin = process.env.SITE_URL;
     if (!origin || !/^https:\/\//i.test(origin)) {
